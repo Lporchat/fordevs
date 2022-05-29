@@ -26,3 +26,4 @@
 ## Exceção - Falha no servidor
 
 1. Sistema retorna uma mensagem de error informando que as credenciais estão erradas
+ 
