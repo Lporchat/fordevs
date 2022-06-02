@@ -9,7 +9,7 @@
 
 ## Exceção - URL Inválida
 
-1. Sistema retorna uma mensagem de error inesperado
+1. ✔ Sistema retorna uma mensagem de error inesperado
 
 ## Exceção - Dados Inválida
 
