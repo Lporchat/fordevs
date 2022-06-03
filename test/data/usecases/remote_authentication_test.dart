@@ -61,7 +61,7 @@ void main() {
             url: anyNamed('url'),
             method: anyNamed('method'),
             body: anyNamed('body')))
-        .thenThrow(HttpError.severError);
+        .thenThrow(HttpError.serverError);
 
     final future = sut.auth(params);
 

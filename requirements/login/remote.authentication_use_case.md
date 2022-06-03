@@ -21,7 +21,7 @@
 
 ## Exceção - Falha no servidor
 
-1. Sistema retorna uma mensagem de error inesperado
+1. ✔ Sistema retorna uma mensagem de error inesperado
 
 ## Exceção - Falha no servidor
 
