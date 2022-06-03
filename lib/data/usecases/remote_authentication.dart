@@ -20,7 +20,7 @@ class RemoteAuthentication {
         method: 'post',
         body: body,
       );
-      // caso seja o error tipo httperror
+      // se der um error tipo HttpError
     } on HttpError catch (error) {
       error == HttpError.unauthorized
           ? throw DomainError.invalidCredentials
