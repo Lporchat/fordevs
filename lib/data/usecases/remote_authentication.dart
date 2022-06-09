@@ -1,3 +1,4 @@
+import 'package:fordevs/data/models/remote_account_model.dart';
 import 'package:fordevs/domain/entities/entities.dart';
 import 'package:fordevs/domain/helpers/domain_error.dart';
 import 'package:meta/meta.dart';
@@ -21,7 +22,7 @@ class RemoteAuthentication {
         method: 'post',
         body: body,
       );
-      return AccountEntity.fromJson(httpResponse);
+      return RemoteAccountModel.fromJson(httpResponse).toEntity();
       // se der um error tipo HttpError
     } on HttpError catch (error) {
       error == HttpError.unauthorized
