@@ -24,6 +24,12 @@ void main() {
         email: faker.internet.email(), secret: faker.internet.password());
   });
   test('Shoulb call HttpClient with corrent values', () async {
+    when(httpClient.request(
+            url: anyNamed('url'),
+            method: anyNamed('method'),
+            body: anyNamed('body')))
+        .thenAnswer((_) async =>
+            {'accessToken': faker.guid.guid(), 'name': faker.person.name()});
     await sut.auth(params);
 
     verify(httpClient.request(
@@ -68,7 +74,8 @@ void main() {
     expect(future, throwsA(DomainError.unexpected));
   });
 
-    test('Shoulb throw invalidCredentialsError if HttpClient return 401', () async {
+  test('Shoulb throw invalidCredentialsError if HttpClient return 401',
+      () async {
     when(httpClient.request(
             url: anyNamed('url'),
             method: anyNamed('method'),
@@ -80,16 +87,17 @@ void main() {
     expect(future, throwsA(DomainError.invalidCredentials));
   });
 
-  
-    test('Shoulb return an Account if HttpClient return 200', () async {
+  test('Shoulb return an Account if HttpClient return 200', () async {
+    final accessToken = faker.guid.guid();
     when(httpClient.request(
             url: anyNamed('url'),
             method: anyNamed('method'),
             body: anyNamed('body')))
-        .thenThrow(HttpError.unauthorized);
+        .thenAnswer((_) async =>
+            {'accessToken': accessToken, 'name': faker.person.name()});
 
-    final future = sut.auth(params);
+    final account = await sut.auth(params);
 
-    expect(future, throwsA(DomainError.invalidCredentials));
+    expect(account.token, accessToken);
   });
 }
