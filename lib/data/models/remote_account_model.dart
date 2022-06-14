@@ -10,7 +10,7 @@ class RemoteAccountModel {
     if (!json.containsKey('accessToken')) {
       throw HttpError.invalidData;
     }
-    RemoteAccountModel(json['accessToken']);
+    return RemoteAccountModel(json['accessToken']);
   }
   //retorna
   AccountEntity toEntity() => AccountEntity(accessToken);
