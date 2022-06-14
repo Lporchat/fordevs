@@ -17,13 +17,12 @@
 
 ## Exceção - Resposta Inválida
 
-1. Sistema retorna uma mensagem de error inesperado
+1. ✔ Sistema retorna uma mensagem de error inesperado
 
 ## Exceção - Falha no servidor
 
 1. ✔ Sistema retorna uma mensagem de error inesperado
 
-## Exceção - Falha no servidor
+## Exceção - Credencias invalidas
 
-1. Sistema retorna uma mensagem de error informando que as credenciais estão erradas
- 
+1. ✔ Sistema retorna uma mensagem de error informando que as credenciais estão erradas
